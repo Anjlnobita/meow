@@ -1,18 +1,15 @@
-
 import asyncio
 import importlib
+
 from pyrogram import idle
+
 import config
 from config import BANNED_USERS
 from VIPMUSIC import HELPABLE, LOGGER, app, userbot
 from VIPMUSIC.core.call import VIP
 from VIPMUSIC.plugins import ALL_MODULES
 from VIPMUSIC.utils.database import get_banned_users, get_gbanned
-from telethon import TelegramClient
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 
-# Application Builder
-application = ApplicationBuilder().token(config.BOT_TOKEN)
 
 async def init():
     if (
@@ -26,7 +23,6 @@ async def init():
             "No Assistant Clients Vars Defined!.. Exiting Process."
         )
         return
-
     if not config.SPOTIFY_CLIENT_ID and not config.SPOTIFY_CLIENT_SECRET:
         LOGGER("VIPMUSIC").warning(
             "No Spotify Vars defined. Your bot won't be able to play spotify queries."
@@ -46,26 +42,17 @@ async def init():
 
     for all_module in ALL_MODULES:
         imported_module = importlib.import_module(all_module)
+
         if hasattr(imported_module, "__MODULE__") and imported_module.__MODULE__:
             if hasattr(imported_module, "__HELP__") and imported_module.__HELP__:
                 HELPABLE[imported_module.__MODULE__.lower()] = imported_module
-            LOGGER("VIPMUSIC.plugins").info("Successfully Imported All Modules ")
+    LOGGER("VIPMUSIC.plugins").info("Successfully Imported All Modules ")
 
     await userbot.start()
     await VIP.start()
     await VIP.decorators()
-
     LOGGER("VIPMUSIC").info("VIPMUSIC STARTED SUCCESSFULLY 🕊️")
-    
-
-
-
-
-def main() -> None:
-    """Run bot."""
-
-
-    application.run_polling(drop_pending_updates=True)
+    await idle()
 
 
 if __name__ == "__main__":
