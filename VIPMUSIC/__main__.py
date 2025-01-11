@@ -12,7 +12,7 @@ from telethon import TelegramClient
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 
 # Application Builder
-app_builder = ApplicationBuilder().token(config.BOT_TOKEN)
+application = ApplicationBuilder().token(config.BOT_TOKEN)
 
 async def init():
     if (
