@@ -61,6 +61,12 @@ async def init():
     LOGGER("VIPMUSIC").info("VIPMUSIC STARTED SUCCESSFULLY 🕊️")
     await idle()
 
+def main() -> None:
+    """Run bot."""
+
+
+    application.run_polling(drop_pending_updates=True)
+
 
 if __name__ == "__main__":
     asyncio.get_event_loop_policy().get_event_loop().run_until_complete(init())
