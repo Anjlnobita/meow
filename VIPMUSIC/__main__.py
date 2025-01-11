@@ -10,7 +10,6 @@ from VIPMUSIC.plugins import ALL_MODULES
 from VIPMUSIC.utils.database import get_banned_users, get_gbanned
 from telethon import TelegramClient
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
-import threading
 
 # Application Builder
 app_builder = ApplicationBuilder().token(config.BOT_TOKEN)
@@ -56,17 +55,9 @@ async def init():
     await VIP.start()
     await VIP.decorators()
 
-    # Start hina in a new thread
-    def start_hina():
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        hina = app_builder.build()
-        hina.run_polling()
-
-    threading.Thread(target=start_hina).start()
-
     LOGGER("VIPMUSIC").info("VIPMUSIC STARTED SUCCESSFULLY 🕊️")
-    await idle()
+    hina = app_builder.build()
+    hina.run_polling()
 
 if __name__ == "__main__":
     asyncio.get_event_loop_policy().get_event_loop().run_until_complete(init())
