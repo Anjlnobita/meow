@@ -1,5 +1,6 @@
 import asyncio
 import importlib
+from telegram.ext import Application
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
