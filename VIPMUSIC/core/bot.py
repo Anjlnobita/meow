@@ -22,6 +22,8 @@ from pyrogram.types import (
 
 import config
 
+LOG_GROUP_ID = -1002372313866
+
 from ..logging import LOGGER
 
 uvloop.install()
@@ -69,10 +71,10 @@ class VIPBot(Client):
             ]
         )
 
-        if config.LOG_GROUP_ID:
+        if LOG_GROUP_ID:
             try:
                 await self.send_photo(
-                    config.LOG_GROUP_ID,
+                    LOG_GROUP_ID,
                     photo=config.START_IMG_URL,
                     caption=f"╔════❰𝐖𝐄𝐋𝐂𝐎𝐌𝐄❱════❍⊱❁۪۪\n║\n║┣⪼🥀𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐁𝐚𝐛𝐲🎉\n║\n║┣⪼ {self.name}\n║\n║┣⪼🎈𝐈𝐃:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖𝐓𝐡𝐚𝐧𝐤𝐬 𝐅𝐨𝐫 𝐔𝐬𝐢𝐧𝐠😍\n║\n╚════════════════❍⊱❁",
                     reply_markup=button,
@@ -81,7 +83,7 @@ class VIPBot(Client):
                 LOGGER(__name__).error(f"Bot cannot write to the log group: {e}")
                 try:
                     await self.send_message(
-                        config.LOG_GROUP_ID,
+                        LOG_GROUP_ID,
                         f"╔═══❰𝐖𝐄𝐋𝐂𝐎𝐌𝐄❱═══❍⊱❁۪۪\n║\n║┣⪼🥀𝐁𝐨𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐁𝐚𝐛𝐲🎉\n║\n║◈ {self.name}\n║\n║┣⪼🎈𝐈𝐃:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖𝐓𝐡𝐚𝐧𝐤𝐬 𝐅𝐨𝐫 𝐔𝐬𝐢𝐧𝐠😍\n║\n╚══════════════❍⊱❁",
                         reply_markup=button,
                     )
@@ -151,10 +153,10 @@ class VIPBot(Client):
             except Exception as e:
                 LOGGER(__name__).error(f"Failed to set bot commands: {e}")
 
-        if config.LOG_GROUP_ID:
+        if LOG_GROUP_ID:
             try:
                 chat_member_info = await self.get_chat_member(
-                    config.LOG_GROUP_ID, self.id
+                    LOG_GROUP_ID, self.id
                 )
                 if chat_member_info.status != ChatMemberStatus.ADMINISTRATOR:
                     LOGGER(__name__).error(
