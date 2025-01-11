@@ -10,8 +10,6 @@ from VIPMUSIC.utils.database import get_banned_users, get_gbanned
 from telethon import TelegramClient
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 
-# Telethon Client
-telethn = TelegramClient("hinata", api_id=config.API_ID, api_hash=config.API_HASH)
 
 # Application Builder
 app_builder = ApplicationBuilder().token(config.BOT_TOKEN)
@@ -55,8 +53,7 @@ async def init():
     await VIP.start()
     await VIP.decorators()
 
-    # Telethon Client Start
-    await telethn.start()
+    
 
     # Application Builder Start
     hina = app_builder.build()
