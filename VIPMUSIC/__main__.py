@@ -56,8 +56,17 @@ async def init():
     await VIP.decorators()
 
     LOGGER("VIPMUSIC").info("VIPMUSIC STARTED SUCCESSFULLY 🕊️")
-    hina = app_builder.build()
-    hina.run_polling()
+    
+
+
+
+
+def main() -> None:
+    """Run bot."""
+
+
+    application.run_polling(drop_pending_updates=True)
+
 
 if __name__ == "__main__":
     asyncio.get_event_loop_policy().get_event_loop().run_until_complete(init())
