@@ -1,6 +1,11 @@
 import asyncio
 import importlib
 
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import Update
+from telegram.ext import CommandHandler, CallbackContext, MessageHandler, filters
+
 from pyrogram import idle
 
 import config
@@ -9,6 +14,8 @@ from VIPMUSIC import HELPABLE, LOGGER, app, userbot
 from VIPMUSIC.core.call import VIP
 from VIPMUSIC.plugins import ALL_MODULES
 from VIPMUSIC.utils.database import get_banned_users, get_gbanned
+
+application = Application.builder().token(config.BOT_TOKEN).build()
 
 
 async def init():
