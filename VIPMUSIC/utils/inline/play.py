@@ -413,7 +413,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
     return buttons
 
 
-def stream_markup(_, videoid, chat_id):
+def stream_markup(_, videoid, played, chat_id):
     buttons = [
        [
             InlineKeyboardButton(
@@ -550,7 +550,7 @@ def telegram_markup(_, chat_id):
 ## Queue Markup
 
 
-def queue_markup(_, videoid, chat_id):
+def queue_markup(_, videoid, played, chat_id):
 
     buttons = [
        [
@@ -669,7 +669,7 @@ def stream_markup_timer2(_, chat_id, played, dur):
     return buttons
 
 
-def panel_markup_1(_, videoid, chat_id):
+def panel_markup_1(_, videoid, played, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
@@ -707,7 +707,7 @@ def panel_markup_1(_, videoid, chat_id):
     return buttons
 
 
-def panel_markup_2(_, videoid, chat_id):
+def panel_markup_2(_, videoid, played, chat_id):
     buttons = [
        [
             InlineKeyboardButton(
@@ -749,7 +749,7 @@ def panel_markup_2(_, videoid, chat_id):
     return buttons
 
 
-def panel_markup_5(_, videoid, chat_id):
+def panel_markup_5(_, videoid, played, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
@@ -784,7 +784,7 @@ def panel_markup_5(_, videoid, chat_id):
     return buttons
 
 
-def panel_markup_3(_, videoid, chat_id):
+def panel_markup_3(_, videoid, played, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
