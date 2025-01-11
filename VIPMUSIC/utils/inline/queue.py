@@ -78,12 +78,6 @@ def aq_markup(_, chat_id):
                 text="ʀᴇᴘʟᴀʏ", callback_data=f"ADMIN Replay|{chat_id}"
             ),
         ],
-        [
-            InlineKeyboardButton(
-                text="๏ ᴍᴏʀᴇ ๏",
-                url="https://t.me/vip_creators",
-            ),
-        ],
     ]
     return buttons
 
@@ -111,12 +105,6 @@ def queuemarkup(_, vidid, chat_id):
             ),
             InlineKeyboardButton(
                 text="ʀᴇᴘʟᴀʏ", callback_data=f"ADMIN Replay|{chat_id}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="๏ ᴍᴏʀᴇ ๏",
-                url="https://t.me/vip_creators",
             ),
         ],
     ]
