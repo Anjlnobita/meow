@@ -58,6 +58,8 @@ async def init():
 
     # Start hina in a new thread
     def start_hina():
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
         hina = app_builder.build()
         hina.run_polling()
 
