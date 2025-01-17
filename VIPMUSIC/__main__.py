@@ -1,11 +1,6 @@
 import asyncio
 import importlib
-from telegram.ext import Application
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram import InlineKeyboardMarkup, InlineKeyboardButton
-from telegram import Update
-from telegram.ext import CommandHandler, CallbackContext, MessageHandler, filters
 
 from pyrogram import idle
 
