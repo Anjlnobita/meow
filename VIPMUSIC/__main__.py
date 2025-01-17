@@ -16,7 +16,7 @@ from VIPMUSIC.core.call import VIP
 from VIPMUSIC.plugins import ALL_MODULES
 from VIPMUSIC.utils.database import get_banned_users, get_gbanned
 
-application = Application.builder().token(config.BOT_TOKEN).build()
+
 
 
 async def init():
@@ -62,11 +62,6 @@ async def init():
     LOGGER("VIPMUSIC").info("VIPMUSIC STARTED SUCCESSFULLY 🕊️")
     await idle()
 
-def main() -> None:
-    """Run bot."""
-
-
-    application.run_polling(drop_pending_updates=True)
 
 
 if __name__ == "__main__":
