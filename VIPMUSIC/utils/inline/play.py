@@ -66,10 +66,11 @@ def stream_markup_timerr(_, videoid, chat_id, played, dur):
         bar = "◈◈◈◈◈◈◈◈◈❖"
     buttons = [
         [
-            InlineKeyboardButton(
-                text=f"{bar}",
+                        InlineKeyboardButton(
+                text=f"{played} •{bar}• {dur}",
                 callback_data="GetTimer"
-                )],
+                )
+        ],
         [
             InlineKeyboardButton(
                 text="ᴘʟᴀʏʟɪsᴛ", callback_data=f"vip_playlist {videoid}"
